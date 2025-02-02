@@ -23,6 +23,9 @@ Este repositório contém dois testes práticos para a vaga de **QA Engineer**.
 
    ```bash
    npm install playwright  
+   npm install css.escape
+   npm install --save-dev @playwright/test
+   npm install --save-dev @types/node
    npm install
    ```
 
