@@ -31,7 +31,7 @@ Este repositório contém dois testes práticos para a vaga de **QA Engineer**.
 
 3. Para rodar os testes de UI:
 
-   ```bash
+   ```bash 
    npm run test:ui
    ```
 
