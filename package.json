@@ -1,7 +1,7 @@
 {
   "name": "qa-challenge",
   "version": "1.0.0",
-  "description": "Este repositório contém dois testes práticos para a vaga de **QA Engineer**. O objetivo é validar suas habilidades de automação de testes com:\r 1. **Validação de fluxos de UI** com **Playwright**.\r 2. **Interação e validação de APIs** com **Playwright** e **Node.js**.",
+  "description": "Este repositório contém dois testes práticos para a vaga de **QA Engineer**.",
   "main": "index.js",
   "scripts": {
     "test:ui": "playwright test tests/ui",
