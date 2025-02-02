@@ -19,7 +19,7 @@ pipeline {
         stage('Run UI Tests') {
             steps {
                 bat 'echo "Running UI Tests..."'
-                bat 'npm run test:ui'
+                bat 'npm run test:uije'
             }
             post {
                 always {
@@ -36,7 +36,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'test-results/**/*.xml' // Ajuste o caminho conforme a saída dos testes
+                    junit '**/test-results.xml' // Ajuste o caminho conforme a saída dos testes
                     archiveArtifacts artifacts: 'playwright-report/**/*', allowEmptyArchive: true
                 }
             }

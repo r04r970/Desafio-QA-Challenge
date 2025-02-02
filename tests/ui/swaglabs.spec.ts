@@ -48,7 +48,7 @@ async function realizarLogin(page: Page, digitarLentamente = false) {
   
   if (digitarLentamente) {
     await page.fill('input[name="user-name"]', '');
-    await page.keyboard.type(usuario, { delay: 100 });
+    await page.keyboard.type(usuario, { delay: 100 }); 
     await page.fill('input[name="password"]', '');
     await page.keyboard.type(senha, { delay: 100 });
   } else {
@@ -177,7 +177,6 @@ test('Remover produtos carrinho aleatorio', async ({ page }) => {
   if(qCarrinho != qtdAddRndProduto){//se a quantidade de produtos adicionadas for igual removida não entra no if
     //#region validação qtd carrinho após excluir
     qCarrinhoString = await page.locator('[data-test="shopping-cart-badge"]').textContent();
-    console.log('depois: ', qCarrinhoString);
     qtdEsperada = qtdAddRndProduto - qtdAddRndProduto;
     if (qCarrinhoString !== null) {
       await expect(parseInt(qCarrinhoString, 10)).toBe(qtdEsperada);
