@@ -1,38 +1,58 @@
 pipeline {
     agent any
 
+    environment {
+        // Defina variáveis de ambiente aqui, se necessário
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/r04r970/desafio-qa-challenge.git'
+                checkout scm
             }
         }
 
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
-                sh 'echo "Building..."'
-                // Adicione comandos de build aqui, se necessário
+                sh 'echo "Installing dependencies..."'
+                sh 'npm install'
+                sh 'npx playwright install'
             }
         }
 
-        stage('Test') {
+        stage('Run UI Tests') {
             steps {
-                sh 'echo "Running tests..."'
-                // Adicione comandos para rodar os testes aqui
-                // Exemplo: sh 'mvn test' para projetos Maven
+                sh 'echo "Running UI Tests..."'
+                sh 'npm run test:ui'
             }
             post {
                 always {
-                    junit '**/target/surefire-reports/*.xml' // Publique relatórios de teste JUnit
+                    junit 'test-results/**/*.xml' // Ajuste o caminho conforme a saída dos testes
+                    archiveArtifacts artifacts: 'playwright-report/**/*', allowEmptyArchive: true
                 }
             }
         }
 
-        stage('Deploy') {
+        stage('Run API Tests') {
             steps {
-                sh 'echo "Deploying..."'
-                // Adicione comandos de deploy aqui, se necessário
+                sh 'echo "Running API Tests..."'
+                sh 'npm run test:api'
             }
+            post {
+                always {
+                    junit 'test-results/**/*.xml' // Ajuste o caminho conforme a saída dos testes
+                    archiveArtifacts artifacts: 'playwright-report/**/*', allowEmptyArchive: true
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
         }
     }
 }
