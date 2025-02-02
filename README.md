@@ -1,18 +1,14 @@
-# QA Challenge
+# Desafio QA Challenge
 
 ## Introdução
 
-Este repositório contém dois testes práticos para a vaga de **QA Engineer**. O objetivo é validar suas habilidades de automação de testes com:
-1. **Validação de fluxos de UI** com **Playwright**.
-2. **Interação e validação de APIs** com **Playwright** e **Node.js**.
-
-Você terá até **2 dias** para completar o teste.
+Este repositório contém dois testes práticos para a vaga de **QA Engineer**. 
 
 ## Requisitos Técnicos
 
-- **Node.js** >= 14.x
-- **TypeScript** >= 4.x
-- **Playwright** >= 1.12.x
+- **Node.js** 
+- **TypeScript** 
+- **Playwright** 
 
 ### Passos para instalação:
 
