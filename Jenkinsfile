@@ -1,26 +1,37 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS 14' // Nome da instalação do NodeJS configurada no Jenkins
-    }
-
     stages {
-        stage('Clonar Repositório') {
+        stage('Checkout') {
             steps {
                 git 'https://github.com/r04r970/desafio-qa-challenge.git'
             }
         }
 
-        stage('Instalar Dependências') {
+        stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'echo "Building..."'
+                // Adicione comandos de build aqui, se necessário
             }
         }
 
-        stage('Executar Testes') {
+        stage('Test') {
             steps {
-                sh 'npx cypress run'
+                sh 'echo "Running tests..."'
+                // Adicione comandos para rodar os testes aqui
+                // Exemplo: sh 'mvn test' para projetos Maven
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml' // Publique relatórios de teste JUnit
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying..."'
+                // Adicione comandos de deploy aqui, se necessário
             }
         }
     }
