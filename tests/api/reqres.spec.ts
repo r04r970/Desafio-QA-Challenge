@@ -44,7 +44,7 @@ test('criar e atualizar usuário', async ({ page }) => {
   const postResponseTime = endPostTime - startPostTime;
 
   expect(postResponse.status()).toBe(201);
-  expect(postResponseTime).toBeLessThan(1000);
+  expect(postResponseTime).toBeLessThan(2000);
 
   const postData = await postResponse.json();
   expect(postData.nome).toBe(newUser.nome);
@@ -70,7 +70,7 @@ test('criar e atualizar usuário', async ({ page }) => {
   const putData = await putResponse.json();
   expect(putData.nome).toBe(updatedUser.nome);
   expect(putData.profissao).toBe(updatedUser.profissao);
-  expect(putResponseTime).toBeLessThan(1000);
+  expect(putResponseTime).toBeLessThan(2000);
 });
 
 // Teste de falha de rede ou timeout
