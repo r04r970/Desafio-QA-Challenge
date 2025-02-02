@@ -39,7 +39,7 @@ pipeline {
                     junit '**/test-results.xml' // Ajuste o caminho conforme a saída dos testes
                     archiveArtifacts artifacts: 'playwright-report/**/*', allowEmptyArchive: true
                 }
-            }
+            } 
         }
     }
 
