@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        // Defina variáveis de ambiente aqui, se necessário
+        // Exemplo de variável de ambiente
+        NODE_ENV = 'production'
     }
 
     stages {
