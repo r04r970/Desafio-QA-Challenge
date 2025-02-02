@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        // Exemplo de variável de ambiente
-        NODE_ENV = 'production'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -15,16 +10,16 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'echo "Installing dependencies..."'
-                sh 'npm install'
-                sh 'npx playwright install'
+                bat 'echo "Installing dependencies..."'
+                bat 'npm install'
+                bat 'npx playwright install'
             }
         }
 
         stage('Run UI Tests') {
             steps {
-                sh 'echo "Running UI Tests..."'
-                sh 'npm run test:ui'
+                bat 'echo "Running UI Tests..."'
+                bat 'npm run test:ui'
             }
             post {
                 always {
@@ -36,8 +31,8 @@ pipeline {
 
         stage('Run API Tests') {
             steps {
-                sh 'echo "Running API Tests..."'
-                sh 'npm run test:api'
+                bat 'echo "Running API Tests..."'
+                bat 'npm run test:api'
             }
             post {
                 always {
