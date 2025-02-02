@@ -15,8 +15,8 @@ Este repositório contém dois testes práticos para a vaga de **QA Engineer**.
 1. Clone este repositório:
 
    ```bash
-   git clone <link-do-repositorio>
-   cd nome-do-repositorio
+   git clone https://github.com/r04r970/qa-challenge.git
+   cd qa-challenge
    ```
 
 2. Instale as dependências:
