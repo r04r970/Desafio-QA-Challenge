@@ -19,7 +19,7 @@ pipeline {
         stage('Run UI Tests') {
             steps {
                 bat 'echo "Running UI Tests..."'
-                bat 'npm run test:ui'
+                bat 'npm run test:uije'
             }
             post {
                 always {

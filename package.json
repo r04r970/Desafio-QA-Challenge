@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:ui": "playwright test tests/ui",
+    "test:uije": "playwright test tests/ui --reporter=junit",
     "test:api": "playwright test tests/api"
   },
   "keywords": [],
